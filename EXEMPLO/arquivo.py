@@ -2,6 +2,9 @@ import pandas as pd
 import streamlit as st
 import plotly.express as px
 
+diretorio_script = os.path.dirname(os.path.abspath(__file__))
+caminho_arquivo = os.path.join(diretorio_script, "Tabela 1.1.2.xls")
+
 @st.cache_data
 def carregar_dados(caminho_arquivos):
     xls = pd.ExcelFile(caminho_arquivos)
@@ -35,8 +38,6 @@ def carregar_dados(caminho_arquivos):
     df_completo = pd.concat(dados_totais, ignore_index=True)
     return df_completo
 
-
-caminho_arquivo = r"Tabela 1.1.2.xls"
 
 try:
     df = carregar_dados(caminho_arquivo)
