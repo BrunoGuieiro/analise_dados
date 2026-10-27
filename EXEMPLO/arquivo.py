@@ -36,7 +36,9 @@ def carregar_dados(caminho_arquivos):
     return df_completo
 
 
-caminho_arquivo = r"Tabela 1.1.2.xls"
+import os
+
+caminho_arquivo = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Tabela 1.1.2.xls")
 
 try:
     df = carregar_dados(caminho_arquivo)
